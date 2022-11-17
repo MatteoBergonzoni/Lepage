@@ -18,4 +18,10 @@ The program is composed of the following parts:
 - **plot_potential.cpp** creates a file 'potential_file.text' containing the data about some potentials (Coulomb, Coulomb+short-range, Coulomb+Dirac and effective) in a given range (the arguments of the function *plot_V()*).
 - **plot_potential.py** plots the data contained in 'potential_file.text'.
 - **error_eigenvalue.cpp** prints the data about the first 15 energy levels with different potentials (Coulomb, Colomb+short-range, Coulomb+Dirac, effective of order o(a<sup>2</sup>) and effective of order o(a<sup>4</sup>)). These data are also saved on the file 'eigenvalue_file.text'.
-- **error_eigenvalue.py** plots the data contained in 'eigenvalue_file.text' and prints the mean relative errors for each potential. 
+- **error_eigenvalue.py** plots the data contained in 'eigenvalue_file.text' and prints the mean relative errors for each potential.
+- **coming soon**
+
+## References
+- G. P. Lepage, “How to renormalize the Schrodinger equation”, 1997.
+- J. Izaac and J. B. Wang, “Computational Quantum Mechanics”, chapter 9.
+
