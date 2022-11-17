@@ -1,8 +1,12 @@
 # Lepage's Analysis
 
+## Project
+
 Project for the exam of Theoretical and Numerical Aspects of Nuclear Physics
 
 Students: Bergonzoni Matteo and Tosca Jacopo
+
+## General structure
 
 The program is composed of the following parts:
 - **definitions.h** contains all the definition of global variables and functions
