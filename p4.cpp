@@ -233,24 +233,6 @@ double psi_boom (double energy , int discretization , double x_i , double x_f ) 
         }
     return x_stop;
     }
-    
-// save_psi creates a file and here saves the information about the normalized eigenfunction
-void save_psi (double x_i , double x_f , int discretization , double energy ) {
-    E_mean = energy;
-    x_initial = x_i; 
-    x_final = x_f;
-    DISCRETIZATION = discretization; 
-    double x_m = x_i;
-    double dx = (x_f - x_i) / (discretization-1);
-    normalization_single_shooting(x_i, x_f, discretization, energy);
-    std::fstream psi_file ; 
-    psi_file.open ("eigenfunction_file.txt", std::fstream::out | std::fstream::app) ;
-    for (int m = 0; m < discretization; m++){
-        psi_file << x_m << ' ' << psi_mth_point_left(m, x_i, x_f, discretization, energy, 0)/abs(integral_psi) <<'\n';
-        x_m=x_m+dx;
-        }
-    std::cout << "\nEigenfunction data (with energy = " << energy << " and in the range [" << x_i << ", " << x_f << "]) have been saved on the file 'eigenfunction_file.text'.\n";
-    };
 
     
 // p4mean compute the expectation value of the operator p^4
@@ -449,7 +431,7 @@ int main () {
 */
 
 
- // P4
+ // Computation of P4
  
   for (int i = 0; i < 6; i++){
      // Coulomb + short range interaction
@@ -459,7 +441,7 @@ int main () {
      v_depth = -1.5;
      nodes_wanted = i; 
      E_mean = eigenvalue(-9,10,0,300,10000) ;
-     std::cout << i+1 <<"S (true): " << p4mean(0, range_psi[i], 20000, E_mean) << std::endl ; 
+     std::cout << i+1 <<"S (true): " << p4mean(0, range_psi[i], 30000, E_mean) << std::endl ; 
      // Effective potential
      v_depth = 0;
      a = 1; 
@@ -468,7 +450,7 @@ int main () {
      activate_EFT = true;
      nodes_wanted = i;
      E_mean = eigenvalue(-9,10,0,300,10000);
-     double p4_eff = p4mean(0, range_psi[i], 20000, E_mean);
+     double p4_eff = p4mean(0, range_psi[i], 30000, E_mean);
      std::cout << i+1 <<"S (eff): " << p4_eff << std::endl;
      // Correct effective potential
      std::cout << i+1 <<"S (c_eff): " << (Z*p4_eff + Gamma*C[i] + eta*D[i]) << std::endl;  
