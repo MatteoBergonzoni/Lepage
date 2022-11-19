@@ -244,7 +244,9 @@ double p4mean (double x_i , double x_f , int DIS , double energy ) {
     for (int i = 0; i < DIS; i++) psi_values[i] = psi_mth_point_left(i, x_i, x_f, DIS, energy, 0);  
     double psi_4derivatives_values [DIS];
     for (int i = 0; i < DIS; i++) {
-        psi_4derivatives_values[i] = ( psi_values[i] - 4 * psi_values[i+1] + 6 * psi_values[i+2] - 4 * psi_values[i+3] + psi_values[i+4] ) / (dx*dx*dx*dx) ;
+        psi_4derivatives_values[i] = ( psi_values[i] - 4 * psi_values[i+1] 
+                                      + 6 * psi_values[i+2] - 4 * psi_values[i+3] 
+                                      + psi_values[i+4] ) / (dx*dx*dx*dx) ;
         }    
     for (int i = 0; i < DIS-5; i++) {
         integral_p4 += 1./(integral_psi*integral_psi) * dx * ( psi_values[i] * (psi_4derivatives_values[i]) ); 
