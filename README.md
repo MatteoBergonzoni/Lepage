@@ -19,7 +19,9 @@ The program is composed of the following parts:
 - **plot_potential.py** plots the data contained in 'potential_file.text'.
 - **error_eigenvalue.cpp** prints the data about the first 15 energy levels with different potentials (Coulomb, Colomb+short-range, Coulomb+Dirac, effective of order o(a<sup>2</sup>) and effective of order o(a<sup>4</sup>)). These data are also saved on the file 'eigenvalue_file.text'.
 - **error_eigenvalue.py** plots the data contained in 'eigenvalue_file.text' and prints the mean relative errors for each potential.
+- **phase_shift.cpp**
 - **save_psi_boom.cpp** creates the file 'psi_boom_file.text'. This file contains the data about eigenvalues, normalization of eigenfunction and psi_boom (the point at which the eigenfunction start to diverge) of the first 20 energy levels for the Coulomb + short-range potential and the effective one.
+- **psi_boom_file.text** contains data about eigenvalues, normalization of eigenfunction and psi_boom (the point at which the eigenfunction start to diverge) of the first 20 energy levels for the Coulomb + short-range potential and the effective one. It is needed to to execute 'p4.cpp' and can also be created by the execution of 'save_psi_boom.cpp' (it is time comsuming).
 - **p4.cpp** prints the values of the expectation values of $p^4$ operator of the first 6 energy levels for the Colomb + short-range potential (true), the effective theory (eff) and the effective theory + local correction (c_eff). This program needs the file 'psi_boom_file.text'.
 
 ## References
