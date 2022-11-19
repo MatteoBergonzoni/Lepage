@@ -25,4 +25,5 @@ The program is composed of the following parts:
 ## References
 - G. P. Lepage, “How to renormalize the Schrodinger equation”, 1997.
 - J. Izaac and J. B. Wang, “Computational Quantum Mechanics”, chapter 9.
+- Our presentation: https://docs.google.com/presentation/d/1HfnmU5usLlJKKp5N0twb4dHZe_1u7Brrx9DdZVPxI0w/edit?usp=sharing
 
