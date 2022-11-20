@@ -432,7 +432,7 @@ void p4_print () {
      std::cout << i+1 <<"S (eff): " << p4_eff << std::endl;
      // Correct effective potential
      std::cout << i+1 <<"S (c_eff): " << (Z*p4_eff + Gamma*C[i] + eta*D[i]) << std::endl;  
-}
+    }}
         
     
    
