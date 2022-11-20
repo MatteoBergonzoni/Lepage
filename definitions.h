@@ -216,3 +216,6 @@ void system_solver () ;
 // save__psi_boom saves the range and the normalization of the eigenfunctions(true and effective), and the eigenvalues (true and effective) of the first 20 energy levels
 // useful to speed up to not repeat some long calculations
 void save_psi_boom (); // parameters used to reproduce the correct expectation value of the operator p^4 in the effective theory
+
+//print p^4 mean values in the case of coulomb, EFT and finally EFT corrected (eff)
+void p4_print (); 
