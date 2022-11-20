@@ -217,5 +217,8 @@ void system_solver () ;
 // useful to speed up to not repeat some long calculations
 void save_psi_boom (); // parameters used to reproduce the correct expectation value of the operator p^4 in the effective theory
 
+
+void fix_constants(); 
+
 //print p^4 mean values in the case of coulomb, EFT and finally EFT corrected (eff)
 void p4_print (); 
