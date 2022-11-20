@@ -358,6 +358,32 @@ void system_solver () {
     eta = det_M_inv * ( (C[19]*p4_eff_15 - p4_eff_20*C[14])*p4_true_10 + (p4_eff_20*C[9] - C[19]*p4_eff_10)*p4_true_15 + (C[14]*p4_eff_10 - p4_eff_15*C[9])*p4_true_20 );
     }
 
+// print the values of p4 for levels from 1S to  6S for coulomb case, EFT and EFT corrected (eff)
+void p4_print () {
+    
+    for (int i = 0; i < 6; i++){
+     // Coulomb + short range interaction
+     activate_EFT = false;
+     activate_dirac = 0;
+     c = 0;
+     v_depth = -1.5;
+     nodes_wanted = i; 
+     E_mean = eigenvalue(-9,10,0,300,10000) ;
+     std::cout << i+1 <<"S (true): " << p4mean(0, range_psi[i], 30000, E_mean) << std::endl ; 
+     // Effective potential
+     v_depth = 0;
+     a = 1; 
+     c_1 = -37.05; 
+     d_1 = 0.4; 
+     activate_EFT = true;
+     nodes_wanted = i;
+     E_mean = eigenvalue(-9,10,0,300,10000);
+     double p4_eff = p4mean(0, range_psi[i], 30000, E_mean);
+     std::cout << i+1 <<"S (eff): " << p4_eff << std::endl;
+     // Correct effective potential
+     std::cout << i+1 <<"S (c_eff): " << (Z*p4_eff + Gamma*C[i] + eta*D[i]) << std::endl;  
+
+}
         
    
 int main () {
@@ -433,30 +459,7 @@ int main () {
 */
 
 
- // Computation of P4
- 
-  for (int i = 0; i < 6; i++){
-     // Coulomb + short range interaction
-     activate_EFT = false;
-     activate_dirac = 0;
-     c = 0;
-     v_depth = -1.5;
-     nodes_wanted = i; 
-     E_mean = eigenvalue(-9,10,0,300,10000) ;
-     std::cout << i+1 <<"S (true): " << p4mean(0, range_psi[i], 30000, E_mean) << std::endl ; 
-     // Effective potential
-     v_depth = 0;
-     a = 1; 
-     c_1 = -37.05; 
-     d_1 = 0.4; 
-     activate_EFT = true;
-     nodes_wanted = i;
-     E_mean = eigenvalue(-9,10,0,300,10000);
-     double p4_eff = p4mean(0, range_psi[i], 30000, E_mean);
-     std::cout << i+1 <<"S (eff): " << p4_eff << std::endl;
-     // Correct effective potential
-     std::cout << i+1 <<"S (c_eff): " << (Z*p4_eff + Gamma*C[i] + eta*D[i]) << std::endl;  
-     }
+ p4_print (); 
  
 
 
